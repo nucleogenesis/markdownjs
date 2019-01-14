@@ -1,5 +1,5 @@
 {
-  "name": "jsmarkdown",
+  "name": "@nucleogenesis/markdownjs",
   "version": "0.0.1",
   "description": "A simple markdown script in JavaScript.",
   "main": "index.js",

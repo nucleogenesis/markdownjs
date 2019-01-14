@@ -236,7 +236,7 @@ function parseMarkdownToHTML(rawText) {
     
     return outputHTML.join('');
 }
-
+/* to be moved elsewhere
 document.addEventListener("DOMContentLoaded", () => {
     let inputElement = document.getElementById('mdjs-in').getElementsByTagName("textarea")[0];
     let outputElement = document.getElementById('mdjs-out');
@@ -245,5 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
         outputElement.innerHTML = parseMarkdownToHTML(e.target.value)
     })
 });
+*/
 
-module.exports = {parseMarkdownToHTML, htmlEncode, parseForNamedUrls };
+module.exports = { parseMarkdownToHTML, htmlEncode, parseForNamedUrls };
