@@ -1,4 +1,20 @@
 
+// Regular Expressions
+const headingRegex = /^(#+)\s/;
+const ulRegex = /^([-*+])\s/;
+const olRegex = /^([0-9]\.)\s/;
+const emRegex = /(([*](\w|\s)+[*])+|([_](\w|\s)+[_])+)/g;
+const boldRegex = /(([*]{2}(\w|\s)+[*]{2})+|([_]{2}(\w|\s)+[_]{2})+)/g;
+const linkRegex = /((\[([\w\s]+)\])\(([\w:/.]*)\))/g;
+const linkNamingRegex = /^\[([\w|\s]+)\]:/;
+const imageRegex = /(!(\[([\w\s]+)\])\(([\w:/.]*)\))/g;
+const namedImageRegex = /!\[([\w|\s]+)\]\[([\w|\s]+)\]/g;
+const namedLinkRegex = /\[([\w|\s]+)\]\[([\w|\s]+)\]/g;
+const blockQuoteRegex = /^>\s/;
+const emptyRegex = /^\s+$/;
+const endingTagRegex = /^<\/\w+>$/;
+const inlineCodeRegex = /([`])(?:(?=(\\?))\2.)*?\1/g;
+
 const htmlEncode = (str) => {
     str = str.replace(/[\u00A0-\u9999<>\&]/g, (i) => {
         return `&#${i.charCodeAt(0)};`;
@@ -29,22 +45,6 @@ const parseForNamedUrls = (lines) => {
 }
 function parseMarkdownToHTML(rawText) {
     const lines = rawText.split("\n");
-
-    // Regular Expressions
-    const headingRegex = /^(#+)\s/;
-    const ulRegex = /^([-*+])\s/;
-    const olRegex = /^([0-9]\.)\s/;
-    const emRegex = /(([*](\w|\s)+[*])+|([_](\w|\s)+[_])+)/g;
-    const boldRegex = /(([*]{2}(\w|\s)+[*]{2})+|([_]{2}(\w|\s)+[_]{2})+)/g;
-    const linkRegex = /((\[([\w\s]+)\])\(([\w:/.]*)\))/g;
-    const linkNamingRegex = /^\[([\w|\s]+)\]:/;
-    const imageRegex = /(!(\[([\w\s]+)\])\(([\w:/.]*)\))/g;
-    const namedImageRegex = /!\[([\w|\s]+)\]\[([\w|\s]+)\]/g;
-    const namedLinkRegex = /\[([\w|\s]+)\]\[([\w|\s]+)\]/g;
-    const blockQuoteRegex = /^>\s/;
-    const emptyRegex = /^\s+$/;
-    const endingTagRegex = /^<\/\w+>$/;
-    const inlineCodeRegex = /([`])(?:(?=(\\?))\2.)*?\1/g;
 
     // Create a spot holding objects holding numbered link information.
     let numberedLinks = parseForNamedUrls(lines);
