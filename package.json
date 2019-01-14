@@ -1,0 +1,14 @@
+{
+  "name": "jsmarkdown",
+  "version": "0.0.1",
+  "description": "A simple markdown script in JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jacob Pierce",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
